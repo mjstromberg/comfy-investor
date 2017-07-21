@@ -5,7 +5,7 @@ export default store => ({
   getComponent(nextState, cb) {
     require.ensure([], (require) => {
       const Chart = require('./containers/ChartContainer').default;
-      const reducer = require('./modules/chart').default;
+      const reducer = require('./modules/reducers').default;
 
       injectReducer(store, { key: 'chart', reducer });
 

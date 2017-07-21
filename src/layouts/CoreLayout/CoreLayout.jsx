@@ -5,8 +5,8 @@ import IconButton from 'material-ui/IconButton';
 import TextField from 'material-ui/TextField';
 import Search from 'material-ui/svg-icons/action/search';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import './CoreLayout.scss';
 import '../../styles/core.scss';
 

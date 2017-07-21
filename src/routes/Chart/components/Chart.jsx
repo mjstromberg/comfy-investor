@@ -29,6 +29,7 @@ export class CandleStickChartWithMA extends React.Component {
 
   componentWillMount() {
     this.props.getSampleData();
+    this.props.fetchChartData();
   }
 
   handleExpandChange = (expanded) => {
@@ -52,8 +53,9 @@ export class CandleStickChartWithMA extends React.Component {
       style={{
         height: '400px',
         margin: '10px',
+        maxWidth: '780px',
         position: 'relative',
-        width: '780px',
+        width: 'calc(100% - 40px)',
       }}
     >
       <div className='loader' />
@@ -159,7 +161,7 @@ export class CandleStickChartWithMA extends React.Component {
 
   render() {
     return (
-      <div style={{ maxWidth: '800px', margin: '20px' }}>
+      <div style={{ margin: '20px', maxWidth: '800px', width: 'calc(100% - 40px)' }}>
         <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
           <CardHeader
             actAsExpander
@@ -197,7 +199,8 @@ export class CandleStickChartWithMA extends React.Component {
 
 CandleStickChartWithMA.propTypes = {
   data: React.PropTypes.array.isRequired,
-  getSampleData: React.PropTypes.func.isRequired,
+  fetchChartData: React.PropTypes.func.isRequired,
+  // getSampleData: React.PropTypes.func.isRequired,
   ratio: React.PropTypes.number.isRequired,
   type: React.PropTypes.oneOf(['svg', 'hybrid']).isRequired,
   width: React.PropTypes.number.isRequired,
@@ -209,7 +212,7 @@ CandleStickChartWithMA.defaultProps = {
 
 // const fitWidthCandleStickChartWithMA = fitWidth(CandleStickChartWithMA);
 const fitDimensionsProps = {
-  width: 800
+  width: Math.min(800, window.innerWidth - 40),
 };
 const fitWidthCandleStickChartWithMA = fitDimensions(CandleStickChartWithMA, fitDimensionsProps);
 
